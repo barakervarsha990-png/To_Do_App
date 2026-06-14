@@ -1,6 +1,5 @@
-// server.js
 const dotenv = require('dotenv');
-dotenv.config();   // ← MUST be first, before everything else
+dotenv.config();
 
 const express = require('express');
 const cors = require('cors');
@@ -9,23 +8,20 @@ const authRoutes = require('./routes/authRoutes');
 const taskRoutes = require('./routes/taskRoutes');
 const errorHandler = require('./middleware/errorHandler');
 
-// Connect to MongoDB
 connectDB();
 
 const app = express();
 
-// ─── Middleware ───────────────────────────────────────────────────────────────
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:3000'],
+  origin: ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:3000'],
   credentials: true,
 }));
 
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true }));
 
-// ─── Routes ───────────────────────────────────────────────────────────────────
 app.get('/api/health', (req, res) => {
-  res.json({ success: true, message: 'API is running 🚀', timestamp: new Date() });
+  res.json({ success: true, message: 'API is running 🚀' });
 });
 
 app.use('/api/auth', authRoutes);

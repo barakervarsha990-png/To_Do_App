@@ -1,7 +1,6 @@
 export default function TaskFilters({ filters, onChange }) {
   return (
     <div className="task-filters">
-      {/* Search */}
       <div className="search-input-wrap">
         <span className="search-icon">🔍</span>
         <input
@@ -12,7 +11,6 @@ export default function TaskFilters({ filters, onChange }) {
         />
       </div>
 
-      {/* Status Filter */}
       <select
         className="filter-select"
         value={filters.status}
@@ -23,7 +21,6 @@ export default function TaskFilters({ filters, onChange }) {
         <option value="completed">Completed</option>
       </select>
 
-      {/* Priority Filter */}
       <select
         className="filter-select"
         value={filters.priority}
@@ -35,7 +32,6 @@ export default function TaskFilters({ filters, onChange }) {
         <option value="low">Low</option>
       </select>
 
-      {/* Sort */}
       <select
         className="filter-select"
         value={filters.sort}
